@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .formLabels {
+    @apply font-bold dark:text-dark;
+  }
+  .darkInputAndTextarea {
+    @apply dark:bg-dark dark:shadow-darkShadow dark:outline-transparent;
+  }
+  .darkModeWrapper {
+    @apply bg-gray-900 text-dark rounded-md px-1 py-1 dark:shadow-darkShadow mr-auto;
+  }
+}
+
+html,
+body,
+#root {
+  width: 100% !important;
+  height: 100% !important;
+  font-family: sans-serif !important;
+  overflow-x: hidden !important;
+}
+
+.dark,
+.dark .CodeMirror {
+  background: #1a1a2e;
+  color: #cccccc;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark h4,
+.dark h5,
+.dark h6,
+.dark span {
+  color: #cccccc;
+}
