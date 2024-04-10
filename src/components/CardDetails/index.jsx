@@ -1,10 +1,13 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import Markdown from "react-markdown";
+import { useParams } from "react-router-dom";
+
 import { useDarkModeSelector } from "../../redux/darkMode";
+
+import { getCardDetail } from "../../core/services/api/getCardDetail.api";
+
 import { Skeleton } from "../common/Skeleton";
 import { DescriptionSkeleton } from "./DescriptionSkeleton";
-import { useParams } from "react-router-dom";
 
 const CardDetails = () => {
   const [card, setCard] = useState({});
@@ -15,11 +18,9 @@ const CardDetails = () => {
 
   useEffect(() => {
     const fetchCard = async () => {
-      const response = await axios.get(
-        `https://65fc4e419fc4425c652fb699.mockapi.io/card/${cardId}`
-      );
+      const response = await getCardDetail(cardId);
 
-      setCard(response.data);
+      setCard(response);
     };
 
     fetchCard();

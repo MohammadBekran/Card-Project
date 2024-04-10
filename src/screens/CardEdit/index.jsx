@@ -1,6 +1,8 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+
+import { getCardDetail } from "../../core/services/api/getCardDetail.api";
+
 import { CardForm } from "../../components/common/CardForm";
 
 const CardEditPage = () => {
@@ -11,9 +13,7 @@ const CardEditPage = () => {
   useEffect(() => {
     const fetchCard = async () => {
       try {
-        const response = await axios.get(
-          `https://65fc4e419fc4425c652fb699.mockapi.io/card/${id}`
-        );
+        const response = await getCardDetail(id);
 
         setInitialValues(response.data);
       } catch (error) {
