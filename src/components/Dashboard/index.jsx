@@ -1,5 +1,6 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+
+import { getCardList } from "../../core/services/api/getCardList.api";
 
 import { AllInclusiveTwoTone } from "@mui/icons-material";
 import { DashboardChart } from "./DashboardChart";
@@ -10,14 +11,12 @@ const Dashboard = () => {
   const [latestCards, setLatestCards] = useState();
 
   const fetchCards = async () => {
-    const response = await axios.get(
-      "https://65fc4e419fc4425c652fb699.mockapi.io/card"
-    );
+    const response = await getCardList();
 
-    const getLatestCards = response.data.slice(-5);
+    const getLatestCards = response.slice(-5);
 
     setLatestCards(getLatestCards);
-    setCards(response.data);
+    setCards(response);
   };
 
   useEffect(() => {

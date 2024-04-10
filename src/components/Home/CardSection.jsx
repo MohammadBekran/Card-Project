@@ -1,6 +1,9 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+
 import { useDarkModeSelector } from "../../redux/darkMode";
+
+import { getCardList } from "../../core/services/api/getCardList.api";
+
 import { Card } from "../common/Card";
 import { Skeleton } from "../common/Skeleton";
 
@@ -10,11 +13,9 @@ const CardSection = () => {
   const darkMode = useDarkModeSelector();
 
   const fetchCards = async () => {
-    const response = await axios.get(
-      "https://65fc4e419fc4425c652fb699.mockapi.io/card"
-    );
+    const response = await getCardList();
 
-    setCards(response.data);
+    setCards(response);
   };
 
   useEffect(() => {

@@ -1,8 +1,10 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
+
+import { getCardList } from "../../core/services/api/getCardList.api";
 
 import { CardsTable } from "./CardsTable";
 import { Link } from "../common/Link";
+import { toast } from "../common/toast";
 
 const Cards = () => {
   const [cards, setCards] = useState([]);
@@ -11,13 +13,11 @@ const Cards = () => {
   const fetchCards = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(
-        "https://65fc4e419fc4425c652fb699.mockapi.io/card"
-      );
+      const response = await getCardList();
 
-      setCards(response.data);
-    } catch (error) {
-      console.log(error);
+      setCards(response);
+    } catch {
+      toast.error("Something went wrong.");
     } finally {
       setLoading(false);
     }
