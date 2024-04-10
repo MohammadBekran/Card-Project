@@ -6,7 +6,7 @@ export const getCardList = async () => {
   try {
     const response = await http.get("/card");
 
-    return response.data;
+    return response;
   } catch (error) {
     toast.error("Something went wrong.");
   }

@@ -12,13 +12,12 @@ const CardSection = () => {
 
   const darkMode = useDarkModeSelector();
 
-  const fetchCards = async () => {
-    const response = await getCardList();
-
-    setCards(response);
-  };
-
   useEffect(() => {
+    const fetchCards = async () => {
+      const response = await getCardList();
+
+      setCards(response);
+    };
     fetchCards();
   }, []);
 

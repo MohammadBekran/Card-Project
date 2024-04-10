@@ -30,7 +30,7 @@ const CardDetails = () => {
       <div className="lg:w-[80%] mx-auto px-5 py-2 border-[1px] border-solid border-borderPrimary rounded-md">
         <div className="w-full">
           <div className="flex justify-center">
-            {card.title ? (
+            {card?.title ? (
               <h2 className="w-fit font-bold text-3xl text-center border-b-[3px] border-solid border-[#2313ae]">
                 {card.title}
               </h2>
@@ -44,7 +44,7 @@ const CardDetails = () => {
             )}
           </div>
           <div className="prose max-w-full mt-6 text-justify">
-            {card.mainDescription ? (
+            {card?.mainDescription ? (
               <Markdown className="dark:text-dark">
                 {card.mainDescription}
               </Markdown>
