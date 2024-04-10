@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import { getCardDetail } from "../../core/services/api/getCardDetail.api";
 
 import { CardForm } from "../../components/common/CardForm";
-import { toast } from "../../components/common/toast";
 
 const CardEditPage = () => {
   const [initialValues, setInitialValues] = useState([]);
@@ -13,15 +12,10 @@ const CardEditPage = () => {
 
   useEffect(() => {
     const fetchCard = async () => {
-      try {
-        const response = await getCardDetail(id);
+      const response = await getCardDetail(id);
 
-        setInitialValues(response);
-      } catch (error) {
-        toast.error("Something went wrong.");
-      } finally {
-        setLoading(false);
-      }
+      setInitialValues(response);
+      setLoading(false);
     };
 
     if (loading) {

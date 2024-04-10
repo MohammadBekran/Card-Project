@@ -38,3 +38,6 @@ body,
 .dark span {
   color: #cccccc;
 }
+.MuiDataGrid-filler.css-8yphpr {
+  display: none;
+}

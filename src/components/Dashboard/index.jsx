@@ -10,16 +10,15 @@ const Dashboard = () => {
   const [cards, setCards] = useState();
   const [latestCards, setLatestCards] = useState();
 
-  const fetchCards = async () => {
-    const response = await getCardList();
-
-    const getLatestCards = response.slice(-5);
-
-    setLatestCards(getLatestCards);
-    setCards(response);
-  };
-
   useEffect(() => {
+    const fetchCards = async () => {
+      const response = await getCardList();
+
+      const getLatestCards = response.slice(-5);
+
+      setLatestCards(getLatestCards);
+      setCards(response);
+    };
     fetchCards();
   }, []);
 

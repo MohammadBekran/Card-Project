@@ -3,12 +3,14 @@ import axios from "axios";
 import PropTypes from "prop-types";
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import SimpleMDE from "react-simplemde-editor";
+
 import { createCardSchema } from "../../../core/validations/createCard.validation";
 import { editCardSchema } from "../../../core/validations/editCard.validation";
+
 import { ErrorMessage } from "../ErrorMessage";
+import { toast } from "../toast";
 
 import "easymde/dist/easymde.min.css";
 
@@ -24,10 +26,6 @@ const CardForm = ({ initialValues }) => {
   });
 
   const navigate = useNavigate();
-
-  const date = new Date();
-
-  console.log(date.getDay());
 
   const onSubmit = async (data) => {
     try {
