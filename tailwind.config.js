@@ -11,7 +11,6 @@ export default {
         darkBackground: "#1a1a2ebf",
         darkHeader: "000000c2",
         cardHover: "to right, #833ab4, #fd1d1d, #fcb045",
-        darkBg: "",
       },
       colors: {
         buttonPrimary: "rgb(255, 255, 255)",
